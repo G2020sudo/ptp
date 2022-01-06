@@ -1,0 +1,6 @@
+FROM ubuntu:focal as build
+WORKDIR /
+
+RUN apt -y update && DEBIAN_FRONTEND=noninteractive apt install -y cmake build-essential git-gui nano vim
+RUN git clone http://git.code.sf.net/p/linuxptp/code linuxptp
+RUN cd linuxptp && make
